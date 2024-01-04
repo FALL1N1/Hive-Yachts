@@ -1,0 +1,32 @@
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Server.net</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <OutputPath>..\Build\</OutputPath>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ProjectGuid>{6B956FB5-08A4-4B9F-A5A4-8DF4189DAA51}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Server.cs" />
+    <EmbeddedResource Include="__resource.lua">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CitizenFX.Core.Server, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\CitizenFX.Core.Server.1.0.5022\lib\net45\CitizenFX.Core.Server.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(TargetDir)"
+      copy *.dll "..\"
+      copy *.lua "..\"
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

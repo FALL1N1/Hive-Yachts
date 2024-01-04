@@ -1,0 +1,13 @@
+*.CopyComplete
+*.cache
+*.bak
+*.txt
+*.pdb
+*suo
+*.suo
+.suo
+.vs
+Build
+Server/obj
+Client/obj
+*.dll

@@ -1,0 +1,49 @@
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client.net</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <OutputPath>..\Build\</OutputPath>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ProjectGuid>{B7E4DBC7-8B28-4E8C-A897-356FE782F993}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Deps\Blip.cs" />
+    <Compile Include="Deps\Logger.cs" />
+    <Compile Include="Deps\Marker.cs" />
+    <Compile Include="Deps\ObjectHash.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="Environment\HiveEntity.cs" />
+    <Compile Include="Environment\Modules\EntityModule.cs" />
+    <Compile Include="Environment\Modules\EntityModuleRegistry.cs" />
+    <Compile Include="Environment\Modules\Impl\EntityNetworkModule.cs" />
+    <Compile Include="Environment\SafeTeleport.cs" />
+    <Compile Include="Extensions\PositionExtensions.cs" />
+    <Compile Include="Handlers\YachtHandler.cs" />
+    <Compile Include="Managers\YachtManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CitizenFX.Core.Client, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\CitizenFX.Core.Client.1.0.5022\lib\net45\CitizenFX.Core.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Deps\HUD.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Library.csproj">
+      <Project>{990e0439-c985-4785-b0d5-1859e6372e43}</Project>
+      <Name>Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
